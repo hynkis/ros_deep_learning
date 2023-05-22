@@ -1,0 +1,16 @@
+<launch>
+	<arg name="output" default="display://0"/>
+	<arg name="output_codec" default="unknown"/>
+	<arg name="output_bitrate" default="0"/>
+	<arg name="loop_rate_hz" default="15"/>
+	<arg name="topic" default="/camera/color/image_raw"/>
+
+	<node pkg="ros_deep_learning" type="posenet" name="posenet" output="screen">
+		<remap from="/posenet/image_in" to="$(arg topic)"/>
+		<param name="resource" value="$(arg output)"/>
+		<param name="codec" value="$(arg output_codec)"/>
+		<param name="bitrate" value="$(arg output_bitrate)"/>
+		<param name="loop_rate_hz" value="$(arg loop_rate_hz)"/>
+	</node>
+
+</launch>

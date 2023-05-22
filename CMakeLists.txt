@@ -73,6 +73,9 @@ target_link_libraries(imagenet ${catkin_LIBRARIES} jetson-inference)
 add_executable(detectnet src/node_detectnet.cpp ${common_src})
 target_link_libraries(detectnet ${catkin_LIBRARIES} jetson-inference)
 
+add_executable(posenet src/node_posenet.cpp ${common_src})
+target_link_libraries(posenet ${catkin_LIBRARIES} jetson-inference)
+
 add_executable(segnet src/node_segnet.cpp ${common_src})
 target_link_libraries(segnet ${catkin_LIBRARIES} jetson-inference)
 
@@ -96,6 +99,9 @@ else()
 	ament_target_dependencies(detectnet rclcpp std_msgs sensor_msgs vision_msgs)
 	install(TARGETS detectnet DESTINATION lib/${PROJECT_NAME})
 
+	ament_target_dependencies(posenet rclcpp std_msgs sensor_msgs vision_msgs)
+	install(TARGETS posenet DESTINATION lib/${PROJECT_NAME})
+	
 	ament_target_dependencies(segnet rclcpp std_msgs sensor_msgs vision_msgs)
 	install(TARGETS segnet DESTINATION lib/${PROJECT_NAME})
 
