@@ -35,6 +35,7 @@
 #ifdef ROS1
 
 #include <ros/ros.h>
+#include <std_msgs/Int16MultiArray.h>
 #include <sensor_msgs/Image.h>
 #include <sensor_msgs/image_encodings.h>
 #include <vision_msgs/Classification2D.h>
